@@ -5,6 +5,8 @@ use App\Models\Todo;
 
 use Illuminate\Http\Request;
 use domain\Facades\TodoFacade;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class TodoController extends ParentController
 {
@@ -16,10 +18,20 @@ class TodoController extends ParentController
 
     public function store(Request $request)
     {
-        // dd($request);
-        TodoFacade::store($request->all());
+        // Role::create(['name' => 'Admin']);
+        // Role::create(['name' => 'Sub Admin']);
+
+        // Role::create(['name' => 'Manager']);
+        // Role::create(['name' => 'User']);
+
+        // Permission::create(['name' => 'view_todo']);
+        // Permission::create(['name' => 'create_todo']);
+        // Permission::create(['name' => 'update_todo']);
+        // Permission::create(['name' => 'delete_todo']);
+        // Permission::create(['name' => 'done_todo']);
+
+        // TodoFacade::store($request->all());
         return redirect()->back();
-        // return redirect()->route('todo');
     }
 
     public function edit(Request $request)

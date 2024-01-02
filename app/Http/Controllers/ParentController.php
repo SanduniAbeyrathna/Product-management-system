@@ -8,7 +8,7 @@ class ParentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:sanctum','verified' ]);
+        $this->middleware(['auth' ]);
     }
 
     // public function index()

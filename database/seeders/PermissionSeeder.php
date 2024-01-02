@@ -18,39 +18,39 @@ class PermissionSeeder extends Seeder
         // Define permission names
         $permissionNames = [
             //todo
-            'todo view',
-            'todo create',
-            'todo edit',
-            'todo delete',
-            'todo status update',
-            'Add Sub Task',
+            'todo_view',
+            'todo_create',
+            'todo_edit',
+            'todo_delete',
+            'todo_status_update',
+            'add_sub_task',
 
             //banner
-            'banner view',
-            'banner create',
-            'banner edit',
-            'banner delete',
-            'banner status update',
+            'banner_view',
+            'banner_create',
+            'banner_edit',
+            'banner_delete',
+            'banner_status_update',
 
             //product
-            'product view',
-            'product create',
-            'product edit',
-            'product delete',
+            'product_view',
+            'product_create',
+            'product_edit',
+            'product_delete',
 
             //users
-            'user view',
-            'user create',
-            'user edit',
-            'user delete',
-            'user status update',
-            'edit password',
+            'user_view',
+            'user_create',
+            'user_edit',
+            'user_delete',
+            'user_status_update',
+            'change_password',
 
             //audit trail
-            'audit trail view',
+            'audit_trail_view',
 
             //role Management
-            'Permission Management',
+            'permission_management',
 
         ];
 

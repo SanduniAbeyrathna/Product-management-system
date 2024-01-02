@@ -33,7 +33,7 @@ Route::prefix('/banner')->group(function () {
     Route::get('/', [BannerController::class, 'index'])->name('banner.index');
     Route::post('/store', [BannerController::class, 'store'])->name('banner.store');
     Route::get('/{banner_id}/delete', [BannerController::class, 'delete'])->name('banner.delete');
-    Route::get('/{banner_id}/ststus', [BannerController::class, 'status'])->name('banner.status');
+    Route::get('/{banner_id}/status', [BannerController::class, 'status'])->name('banner.status');
 });
 
 //Permissions
@@ -49,6 +49,7 @@ Route::prefix('/roles')->group(function () {
     Route::get('/', [RoleController::class, 'index'])->name('roles.index');
     Route::post('/store', [RoleController::class, 'store'])->name('roles.store');
 });
+
 
 
 
