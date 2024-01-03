@@ -6,6 +6,7 @@
             <div class="col-lg-12 text-center">
                 <h1 class="page-title">My Todo List</h1>
             </div>
+
             <div class="col-lg-11 mt-5"> {{-- max length: col-lg-12 --}}
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -30,6 +31,7 @@
                     </div>
                 </form>
             </div>
+
             <div class="col-lg-12 mt-5">
                 <table class="table table-info table-bordered border-success table-striped">
                     <thead>
@@ -64,13 +66,19 @@
                                         <button type="submit" class="btn btn-danger btn-sm"><i
                                                 class="far fa-trash-alt"></i></button>
                                     </form> --}}
+                                    {{-- @hasrole('admin') --}}
                                     <a href="{{ route('todo.delete', $task->id) }}" class="btn btn-danger btn-sm"><i
                                             class="fa fa-trash-alt"></i></a>
+                                    {{-- @endhasrole --}}
+                                    {{-- @hasanyrole('admin|user') --}}
                                     <a href="{{ route('todo.status', $task->id) }}" class="btn btn-success btn-sm"><i
                                             class="fa-regular fa-circle-check"></i></a>
+                                    {{-- @endhasanyrole --}}
+                                    {{-- @can('edit_todo') --}}
                                     <a href="javascript:void(0)" class="btn btn-primary btn-sm"><i
                                             class="fa-solid fa-pencil" onclick="taskEditModal({{ $task->id }})"
                                             data-bs-toggle="modal" data-bs-target="#taskEdit"></i></a>
+                                    {{-- @endcan --}}
                                     <a href="{{ route('todo.subtask', $task->id) }}" class="btn btn-dark btn-sm"><i
                                             class="fa fa-arrow-right"></i></a>
                                 </td>

@@ -2,36 +2,107 @@
 
 namespace App\Http\Controllers;
 use App\Models\Todo;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use domain\Facades\TodoFacade;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 
 class TodoController extends ParentController
 {
+    public function __construct()
+    {
+        // $this->middleware(['auth', 'role:Admin']);
+        // $this->middleware(['auth', 'can:view_todo']);
+        // $this->middleware(['auth', 'permission:view_todo']);
+        // $this->middleware(['role_or_permission:Admin|todo_edit']);
+    }
+
     public function index()
     {
+        $user = Auth::user();
+        // dd($user);
+        // dd($user->getRoleName());
+        // dd($user->getPermissionNames());
+        // dd($user->getPermissionsViaRoles());
+
         $response ['tasks'] = TodoFacade::all();
         return view('pages.todo.index')->with($response);
     }
 
     public function store(Request $request)
     {
-        // Role::create(['name' => 'Admin']);
-        // Role::create(['name' => 'Sub Admin']);
+        //Create Roles
+        // Role::create(['name' => 'admin']);
+        // Role::create(['name' => 'sub_admin']);
+        // Role::create(['name' => 'company']);
+        // Role::create(['name' => 'user']);
+        // Role::create(['name' => 'super_admin']);
 
-        // Role::create(['name' => 'Manager']);
-        // Role::create(['name' => 'User']);
-
+        //Create Permissions
         // Permission::create(['name' => 'view_todo']);
         // Permission::create(['name' => 'create_todo']);
-        // Permission::create(['name' => 'update_todo']);
-        // Permission::create(['name' => 'delete_todo']);
+        // Permission::create(['name' => 'todo_edit']);
+        // Permission::create(['name' => 'todo_delete']);
         // Permission::create(['name' => 'done_todo']);
 
-        // TodoFacade::store($request->all());
-        return redirect()->back();
+        //Assign Roles to user
+        $admin = User::find(3);
+        $company = User::find(4);
+        $user = User::find(5);
+        $super_admin = User::find(2);
+
+        $admin->assignRole('Admin');
+        $company->assignRole('Company');
+        $user->assignRole('User');
+        $super_admin->assignRole('Super Admin');
+
+        //Give permission to role
+        $role_admin = Role::where('name', 'Admin')->first();
+        $role_company = Role::where('name', 'Company')->first();
+        $role_user = Role::where('name', 'User')->first();
+
+        $role_admin->givePermission('todo_view');
+        $role_admin->givePermission('todo_create');
+        $role_admin->givePermission('todo_edit');
+        $role_admin->givePermission('todo_delete');
+
+        $role_company->givePermission('todo_view');
+        $role_company->givePermission('todo_create');
+        $role_company->givePermission('todo_edit');
+
+        $role_user->givePermission('todo_view');
+
+        //Get the user
+        // $user = Auth::user();
+
+        // Role check
+        // if ($user->hasRole('Admin')) {
+        //     TodoFacade::store($request->all());
+        //     return redirect()->back();
+        // }else {
+        //     dd(`You don't have permission to access this page`);
+        // }
+
+        //Permission Check
+        // if ($user->hasPermissionTo('todo_create')) {
+        //     TodoFacade::store($request->all());
+        //     return redirect()->back();
+        // }else {
+        //     dd(`You don't have permission to access this page`);
+        // }
+
+        //super_admin
+        // if ($user->can('todo_create')) {
+        //     TodoFacade::store($request->all());
+        //     return redirect()->back();
+        // }else {
+        //     dd(`You don't have permission to access this page`);
+        // }
+
+            TodoFacade::store($request->all());
+            return redirect()->back();
     }
 
     public function edit(Request $request)
@@ -69,7 +140,8 @@ class TodoController extends ParentController
     }
 
     // sub task section
-    public function subTaskStore(Request $request)
+
+   public function subTaskStore(Request $request)
     {
         // dd($request);
         TodoFacade::subTaskStore($request->all());
