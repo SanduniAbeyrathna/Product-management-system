@@ -2,7 +2,6 @@
 
 namespace domain\Facades;
 
-// use domain\Facades\BannerFacade;
 use domain\Services\BannerService;
 use Illuminate\Support\Facades\Facade;
 

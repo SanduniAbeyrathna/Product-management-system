@@ -7,7 +7,7 @@
                 <h1 class="page-title">My Banner List</h1>
             </div>
 
-            <div class="col-lg-12 mb-">
+            <div class="col-lg-12 mb-3">
                 <a onclick="add()" href="javascript:void(0)" type="button" class="btn btn-secondary btn-sm">Add New Banner</a>
             </div>
             <div class="col-lg-12 mt-5">
@@ -28,8 +28,12 @@
                             <tr>
                                 <th scope="row">{{ ++$key }}</th>
                                 <td>{{ $banner->title }}</td>
-                                <td><img src="{{ config('images.access_path') }}/{{ $banner->images->name }}" alt=""
-                                        class="banner-table"></td>
+                                <td>
+                                    @if ($banner->images)
+                                        <img src="{{ config('images.access_path') }}/{{ $banner->images->name }}"
+                                            alt="" class="banner-table">
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($banner->status == 0)
                                         <span class="badge bg-warning">Draft</span>
@@ -40,13 +44,6 @@
                                 <td>{{ $banner->created_at->format('Y-m-d H:i:s') }}</td>
                                 <td>{{ $banner->updated_at->format('Y-m-d H:i:s') }}</td>
                                 <td class="d-flex align-items-center">
-                                    {{-- <form action="{{ route('todo.delete', $banner->id) }}" method="post"
-                                        onsubmit="return confirm('Are you sure you want to delete this task?')">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm"><i
-                                                class="far fa-trash-alt"></i></button>
-                                    </form> --}}
                                     <a href="{{ route('banner.delete', $banner->id) }}" class="btn btn-danger btn-sm"><i
                                             class="fa fa-trash-alt"></i></a>
                                     @if ($banner->status == 0)
@@ -141,10 +138,7 @@
 @push('js')
     <script>
         function add() {
-            // $('#EmployeeForm').trigger("reset");
-            // $('#EmployeeModal').html("Add New Banner");
             $('#bannerAdd').modal('show');
-            // $('#id').val('');
         }
     </script>
 @endpush

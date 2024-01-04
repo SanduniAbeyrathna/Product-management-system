@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use domain\Facades\BannerFacade;
-use infrastructure\Images;
 
 class BannerController extends ParentController
 {

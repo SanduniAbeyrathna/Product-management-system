@@ -3,8 +3,8 @@
 namespace domain\Services;
 
 use App\Models\Banner;
-// use domain\Services\BannerService;
-use infrastructure\Facades\ImagesFacade;
+use domain\Facades\ImagesFacade;
+
 
 class BannerService
 {
@@ -36,8 +36,9 @@ class BannerService
     {
         // dd($data);
         if(isset($data['images'])){
-            $image = ImagesFacade::store($data['images'], [1,2,3,4,5]);
-            $data['image_id'] = $image['created_images']->id;
+            // $image = ImagesFacade::storeTodoPublic($data['images']);
+            $image = ImagesFacade::storeTodoStorage($data['images']);
+            $data['image_id'] = $image->id;
         }
         $this->banner->create($data);
 
