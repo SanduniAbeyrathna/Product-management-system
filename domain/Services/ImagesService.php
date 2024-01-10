@@ -31,9 +31,13 @@ class ImagesService{
         //1) $path = $file->storeAs('upolads', $name);
         // dd($path);
 
-        //2) $file->storeAs('public/upolads', $name);
-        // 3)
+        //2)
+        // $file->storeAs('public/upolads', $name);
+
+        //3)
         Storage::putFileAs('public/upolads', $file, $name);
+
+        //4)
         // $file->store('public/upolads', $file, $name);
 
         //display name of the image
@@ -44,5 +48,4 @@ class ImagesService{
             'name' => $name,
         ]);
     }
-
 }
