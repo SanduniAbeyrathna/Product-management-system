@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PermissionController;
 
 //Home
@@ -50,7 +51,15 @@ Route::prefix('/roles')->group(function () {
     Route::post('/store', [RoleController::class, 'store'])->name('roles.store');
 });
 
-
+//Category
+Route::prefix('/ajax-crud-datatable')->group(function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('ajax-crud-datatable');
+    Route::post('/store', [CategoryController::class, 'store']);
+    Route::post('/{id}/edit', [CategoryController::class, 'edit']);
+    Route::post('/{id}/delete', [CategoryController::class, 'destroy']);
+    // Route::resource('/category', CategoryController::class);
+    // Route::get('/category/data', [CategoryController::class, 'data'])->name('category.data');
+});
 
 
 // Route::get('/todo', [TodoController::class, 'index'])->name('todo');
