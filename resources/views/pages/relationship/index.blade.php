@@ -9,20 +9,20 @@
         </div>
 
         {{-- ONE TO ONE (ONE Product HAS ONE Category) --}}
-        {{-- <div class="row justify-content-center">
+        <div class="row justify-content-center">
             @foreach ($products as $product)
                 <div class="col-md-4 mt-4">
                     <div class="card product-box border-info mb-4">
                         <div class="card-header"><strong>Name : {{ $product->name }}</strong></div>
                         <div class="card-body">
                             <p class="card-text">{{ $product->intro }}</p>
-                            <a href="#" class="card-link">Add to Cart</a>
+                            {{-- <a href="#" class="card-link">Add to Cart</a> --}}
                             <a href="#" class="btn btn-sm btn-info">Add to Cart</a>
                         </div>
                     </div>
                 </div>
             @endforeach
-        </div> --}}
+        </div>
 
         {{-- ONE TO MANY (ONE Category HAS MANY Products) --}}
         {{-- <div class="row justify-content-center">
@@ -125,7 +125,7 @@
         </div> --}}
 
         {{-- HAS MANY THROUGH (Category -> comment) --}}
-        -<div class="row justify-content-center">
+        {{-- <div class="row justify-content-center">
             @foreach ($categories as $category)
                 <div class="col-md-6 mt-4">
                     <div class="card product-box border-info mb-4">
@@ -137,9 +137,9 @@
                                         <div class="card category-box">
                                             <div class="card-body">
                                                 <div class="card-title"><strong>Product: {{ $review->product->name }}</strong></div>
-                                                <p>{{ $review->comment }}</p>
+                                                <p>{{ $review->comment }}</p> --}}
                                                 {{-- <h6>{{ $review->intro }}</h6> --}}
-                                            </div>
+                                            {{-- </div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -148,7 +148,7 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
 
     </div>
 @endsection

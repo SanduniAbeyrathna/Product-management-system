@@ -9,9 +9,9 @@
     <title>Product Management System</title>
 
     @include('libraries.styles')
-</head>
+</head>`
 
-<body>
+<body style="font-size: 12px;">
     @include('components.nav')
 
     @yield('content')

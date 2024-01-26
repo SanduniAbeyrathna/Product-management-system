@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">Dashboard</a>
+        <a class="navbar-brand" href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,13 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('todo.index') }}">Todo</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('todo.index') }}"><i
+                            class="fa-regular fa-rectangle-list"></i> Todo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('banner.index') }}">Banner</a>
+                    <a class="nav-link" href="{{ route('banner.index') }}"><i class="fa-solid fa-image"></i> Banner</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('relationship') }}">Relationship</a>
+                    <a class="nav-link" href="{{ route('ajax-crud-datatable') }}"><i class="fa-solid fa-cube"></i>
+                        Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('relationship') }}"> <i class="fa-solid fa-cubes"></i>
+                        Relationship</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

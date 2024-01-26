@@ -8,7 +8,8 @@
             </div>
 
             <div class="col-lg-12 mb-3">
-                <a onclick="add()" href="javascript:void(0)" type="button" class="btn btn-secondary btn-sm">Add New Banner</a>
+                <a onclick="add()" href="javascript:void(0)" type="button" class="btn btn-secondary btn-sm"><i
+                        class="fa fa-plus-circle"></i> Add New Banner</a>
             </div>
             <div class="col-lg-12 mt-5">
                 <table class="table table-bordered border-dark table-striped table-hover">

@@ -11,9 +11,12 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories';
+    protected $primaryKey = 'id';
+    // protected $guarded = [];
     protected $fillable = [
         'name',
     ];
+
 
     //One to Many (Category has many Products)
     // public function products()
