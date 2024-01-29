@@ -11,4 +11,17 @@
     integrity="sha512-In/+MILhf6UMDJU4ZhDL0R0fEpsp4D3Le23m6+ujDWXwl3whwpucJG1PEmI3B07nyJx+875ccs+yX2CqQJUxUw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<!-- Add this line to include the DataTables CSS file -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+<style>
+    .title-text {
+        text-align: center;
+    }
+    .btn{
+        font-size: 10px;
+        padding: 5px;
+    }
+</style>
+
 @stack('css')

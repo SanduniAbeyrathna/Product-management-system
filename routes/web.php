@@ -6,6 +6,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\CategoryController;
+
 
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -50,8 +52,14 @@ Route::prefix('/roles')->group(function () {
     Route::post('/store', [RoleController::class, 'store'])->name('roles.store');
 });
 
-
-
+//category
+Route::prefix('/users')->group(function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('users.index');
+    Route::post('/store', [CategoryController::class, 'store'])->name('users.store');
+    Route::get('/edit/{id}/', [CategoryController::class, 'edit']);
+    Route::post('/update', [CategoryController::class, 'update'])->name('users.update');
+    Route::get('/destroy/{id}/', [CategoryController::class, 'destroy']);
+});
 
 // Route::get('/todo', [TodoController::class, 'index'])->name('todo');
 

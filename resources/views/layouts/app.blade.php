@@ -11,7 +11,7 @@
     @include('libraries.styles')
 </head>
 
-<body>
+<body style="font-size: 12px;">
     @include('components.nav')
 
     @yield('content')
